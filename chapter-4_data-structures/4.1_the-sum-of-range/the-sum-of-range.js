@@ -7,7 +7,6 @@ return array;
 }
 console.log(range(4,12,2));
 
-
 function sum (...numbers){
   let count = 0;
   for(let n of numbers){
