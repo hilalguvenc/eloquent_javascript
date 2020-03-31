@@ -1,3 +1,4 @@
+//11 places with 14 roads
 const roads = [
   "Alice's House-Bob's House",
   "Alice's House-Cabin",
@@ -14,3 +15,19 @@ const roads = [
   "Marketplace-Town Hall",
   "Shop-Town Hall"
 ];
+function buildGraph() {
+  let graph = Object.create(null);
+  function addEdge(from, to) {
+    if (graph[from] == null) {
+      graph[from] = [to];
+    } else {
+      graph[from].push(to);
+    }
+  }
+  for (let [from, to] of edges.map(r => r.split("-"))) {
+    addEdge(from, to);
+    addEdge(to, from);
+  }
+  return graph;
+}
+const roadGraph = buildGraph(roads);
